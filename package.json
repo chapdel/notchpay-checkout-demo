@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@notchpay/payment": "^1.0.3",
+    "@notchpay/payment": "^1.1.0",
     "bootstrap": "^4.3.1",
     "core-js": "^3.6.5",
     "firebase": "^7.14.1",

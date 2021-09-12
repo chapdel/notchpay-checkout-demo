@@ -177,9 +177,10 @@ export default {
           .then((r) => {
             var _transaction = notchpay
               .transaction()
-              .completeWithWindow(r.data.authorization_url, r.data.transaction);
+              .prettyComplete(r.data.authorization_url, r.data.transaction);
 
             var watcher = setInterval(() => {
+              console.log(_transaction);
               if (
                 _transaction.status != null &&
                 _transaction.status != "pending"
@@ -188,6 +189,7 @@ export default {
 
                 switch (_transaction.status) {
                   case "complete":
+                    console.log(_transaction.status, "to complete");
                     this.addMessage({
                       messageClass: "success",
                       message: "Your order has been successfully processed!",
@@ -200,6 +202,7 @@ export default {
                     this.$router.push("/");
                     break;
                   default:
+                    console.log(_transaction.status, "to ttt");
                     this.addMessage({
                       messageClass: "danger",
                       message: `Your transaction failed with status [${_transaction.status}]`,
